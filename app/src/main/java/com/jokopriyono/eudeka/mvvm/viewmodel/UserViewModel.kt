@@ -3,6 +3,8 @@ package com.jokopriyono.eudeka.mvvm.viewmodel
 import android.content.Context
 import android.text.TextUtils
 import com.jokopriyono.eudeka.mvvm.model.User
+import com.jokopriyono.eudeka.mvvm.view.team.TeamActivity
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
 class UserViewModel(val context: Context, val user: User) {
@@ -21,10 +23,16 @@ class UserViewModel(val context: Context, val user: User) {
 
         if (TextUtils.isEmpty(user.email)) isValid = false
         if (TextUtils.isEmpty(user.password)) isValid = false
-        if (isValid)
+        if (isValid) {
             showToast(TOAST_MESSAGE_SUCCESS)
-        else
+            intentToTeam()
+        } else {
             showToast(TOAST_MESSAGE_FAILED)
+        }
+    }
+
+    private fun intentToTeam() {
+        context.startActivity<TeamActivity>()
     }
 
     private fun showToast(message: String) {

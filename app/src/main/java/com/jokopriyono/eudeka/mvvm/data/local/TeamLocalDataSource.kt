@@ -1,20 +1,23 @@
 package com.jokopriyono.eudeka.mvvm.data.local
 
+import android.content.Context
 import com.jokopriyono.eudeka.mvvm.data.TeamDataSource
 import com.jokopriyono.eudeka.mvvm.model.Team
 import com.jokopriyono.eudeka.mvvm.model.TeamDetail
 
-class TeamLocalDataSource(private val teamDao: TeamDao) : TeamDataSource {
+class TeamLocalDataSource(context: Context) : TeamDataSource {
+    private var teamDao: TeamDao? = TeamDatabase.getInstance(context)?.teamDao()
     override fun getListTeams(getTeamsCallback: TeamDataSource.GetTeamsCallback) {
 
         Thread(
             Runnable {
-                val team = teamDao.getTeams()
-                if (team.isEmpty()) {
-                    getTeamsCallback.onDataNotAvailable("Data in DB Empty")
-                } else {
-                    val teams = Team(team)
-                    getTeamsCallback.onTeamLoaded(teams)
+                teamDao?.let {
+                    if (it.getTeams().isEmpty()) {
+                        getTeamsCallback.onDataNotAvailable("Data in DB Empty")
+                    } else {
+                        val teams = Team(it.getTeams())
+                        getTeamsCallback.onTeamLoaded(teams)
+                    }
                 }
             }
         ).start()
@@ -23,7 +26,7 @@ class TeamLocalDataSource(private val teamDao: TeamDao) : TeamDataSource {
     fun saveDataTeam(team: MutableList<TeamDetail>) {
         Thread(
             Runnable {
-                teamDao.insertTeam(team)
+                teamDao?.insertTeam(team)
             }
         ).start()
     }
