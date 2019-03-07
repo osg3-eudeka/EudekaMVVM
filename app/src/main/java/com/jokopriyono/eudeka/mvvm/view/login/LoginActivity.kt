@@ -1,7 +1,7 @@
 package com.jokopriyono.eudeka.mvvm.view.login
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.jokopriyono.eudeka.mvvm.R
 import com.jokopriyono.eudeka.mvvm.model.User
 import com.jokopriyono.eudeka.mvvm.viewmodel.UserViewModel

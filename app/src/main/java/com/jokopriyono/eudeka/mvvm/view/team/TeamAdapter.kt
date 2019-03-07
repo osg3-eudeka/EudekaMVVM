@@ -1,9 +1,9 @@
 package com.jokopriyono.eudeka.mvvm.view.team
 
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import com.jokopriyono.eudeka.mvvm.R
 import com.jokopriyono.eudeka.mvvm.model.TeamDetail
 import com.squareup.picasso.Picasso

@@ -1,8 +1,8 @@
 package com.jokopriyono.eudeka.mvvm.data.local
 
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.Query
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.Query
 import com.jokopriyono.eudeka.mvvm.model.TeamDetail
 
 @Dao

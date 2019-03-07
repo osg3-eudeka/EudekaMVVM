@@ -1,9 +1,9 @@
 package com.jokopriyono.eudeka.mvvm.view.team
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.jokopriyono.eudeka.mvvm.Injection
 import com.jokopriyono.eudeka.mvvm.R
 import com.jokopriyono.eudeka.mvvm.model.TeamDetail
