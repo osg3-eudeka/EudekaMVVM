@@ -6,7 +6,7 @@
         android:padding="16dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.main.MainActivity">
+        tools:context=".view.login.LoginActivity">
 
     <EditText
             android:id="@+id/edt_email"
@@ -33,4 +33,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+    <TextView
+            android:text="@string/hint"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 </LinearLayout>
